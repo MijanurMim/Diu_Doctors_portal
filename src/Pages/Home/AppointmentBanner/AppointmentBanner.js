@@ -50,7 +50,7 @@ const AppointmentBanner = () => {
               We have the best experienced doctors of our country to give you
               the best treatments. So that you can enjoy a healthy life.
             </Typography>
-            <Button variant="contained" sx={{ backgroundColor: "#5CE7ED" }}>
+            <Button variant="contained" color="primary">
               Learn More
             </Button>
           </Box>

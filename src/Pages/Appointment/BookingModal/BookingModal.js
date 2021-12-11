@@ -128,7 +128,7 @@ const BookingModal = ({
               size="small"
               name="phone"
               onBlur={handleOnBlur}
-              defaultValue="Phone Number"
+              placeholder="Phone Number"
             />
             <TextField
               disabled
@@ -138,7 +138,7 @@ const BookingModal = ({
               defaultValue={date.toDateString()}
             />
             <Button type="submit" variant="contained">
-              Confirm Appointment
+              CONFIRM APPOINTMENT
             </Button>
           </form>
         </Box>

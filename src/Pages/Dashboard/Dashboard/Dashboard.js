@@ -1,17 +1,15 @@
-import MailIcon from "@mui/icons-material/Mail";
+import AdminPanelSettingsTwoToneIcon from "@mui/icons-material/AdminPanelSettingsTwoTone";
+import BookmarkAddedTwoToneIcon from "@mui/icons-material/BookmarkAddedTwoTone";
+import DashboardTwoToneIcon from "@mui/icons-material/DashboardTwoTone";
+import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import { Button } from "@mui/material";
+import { Avatar, Button, Paper } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
@@ -19,7 +17,6 @@ import * as React from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
-import AddDoctor from "../AddDoctor/AddDoctor";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin.js";
 
@@ -31,7 +28,7 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
+  const { admin, user } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -39,37 +36,54 @@ function Dashboard(props) {
 
   const drawer = (
     <div>
+      <Paper
+        elevation="0"
+        sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
+      >
+        <Avatar sx={{ width: "100px", height: "100px" }}>
+          <img src={user?.photoURL} alt="" srcset="" />
+        </Avatar>
+        <Typography variant="h6" color="secondary">
+          {user.displayName}
+        </Typography>
+      </Paper>
       <Toolbar />
       <Divider />
+      <Link to="/home" style={{ textDecoration: "none" }}>
+        <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+          <HomeTwoToneIcon />
+          <Button color="secondary">HOME</Button>
+        </Button>
+      </Link>
+
       {/* go to appointment  */}
-      <Link to="/appointment">
-        <Button color="secondary">Appointment</Button>
+      <Link to="/appointment" style={{ textDecoration: "none" }}>
+        <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+          <BookmarkAddedTwoToneIcon></BookmarkAddedTwoToneIcon>
+          <Button color="secondary">APPOINTMENT</Button>
+        </Button>
       </Link>
 
       {/* Nesting area  */}
-      <Link to={`${url}`}>
-        <Button color="secondary">Dashboard</Button>
+      <Link to={`${url}`} style={{ textDecoration: "none" }}>
+        <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+          <DashboardTwoToneIcon></DashboardTwoToneIcon>
+          <Button color="secondary">DASHBOARD</Button>
+        </Button>
       </Link>
+
+      {/* if user is admin  */}
       {admin && (
         <Box>
-          <Link to={`${url}/makeAdmin`}>
-            <Button color="secondary">Make Admin</Button>
-          </Link>
-          <Link to={`${url}/addDoctor`}>
-            <Button color="secondary">Add Doctor</Button>
+          <Link to={`${url}/makeAdmin`} style={{ textDecoration: "none" }}>
+            <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+              <AdminPanelSettingsTwoToneIcon></AdminPanelSettingsTwoToneIcon>
+
+              <Button color="secondary">MAKE ADMIN</Button>
+            </Button>
           </Link>
         </Box>
       )}
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
     </div>
   );
 
@@ -111,7 +125,6 @@ function Dashboard(props) {
           container={container}
           variant="temporary"
           open={mobileOpen}
-          
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
@@ -157,10 +170,6 @@ function Dashboard(props) {
 
           <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
-          </AdminRoute>
-
-          <AdminRoute path={`${path}/addDoctor`}>
-            <AddDoctor></AddDoctor>
           </AdminRoute>
         </Switch>
       </Box>

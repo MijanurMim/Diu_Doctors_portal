@@ -1,4 +1,5 @@
 import MenuIcon from "@mui/icons-material/Menu";
+import { Avatar } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -25,7 +26,7 @@ const Navigation = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Diu Doctors Portal
+            DIU DOCTORS PORTAL
           </Typography>
 
           {/* go to appointment  */}
@@ -67,6 +68,9 @@ const Navigation = () => {
               <Button color="inherit">Login</Button>
             </Link>
           )}
+          <Avatar>
+            <img src={user?.photoURL} alt="" />
+          </Avatar>
         </Toolbar>
       </AppBar>
     </Box>

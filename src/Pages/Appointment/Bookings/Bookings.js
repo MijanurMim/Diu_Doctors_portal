@@ -12,7 +12,7 @@ const Bookings = ({ booking, date, setAppointmentSuccess }) => {
       <Grid item xs={12} sm={6} md={4}>
         <Paper elevation={3} sx={{ py: 5 }}>
           <Typography
-            sx={{ fontWeight: 600, color: "info.main" }}
+            sx={{ fontWeight: 600 }}
             variant="h5"
             gutterBottom
             component="div"

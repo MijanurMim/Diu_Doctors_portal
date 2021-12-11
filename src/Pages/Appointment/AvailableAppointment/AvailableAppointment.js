@@ -50,7 +50,7 @@ const AvailableAppointment = ({ date }) => {
   const [appointmentSuccess, setAppointmentSuccess] = useState(false);
   return (
     <Container>
-      <Typography variant="h4" sx={{ color: "info.main", my: 4 }}>
+      <Typography color="primary" variant="h4" sx={{ my: 4 }}>
         Available Appointments on {date.toDateString()}
       </Typography>
       {appointmentSuccess && (
