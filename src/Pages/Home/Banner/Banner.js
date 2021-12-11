@@ -1,6 +1,7 @@
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { Link } from "react-router-dom";
 import bg from "../../../images/bg.png";
 import chair from "../../../images/chair.png";
 
@@ -23,17 +24,16 @@ const Banner = () => {
               Your New Smile <br />
               Starts Here
             </Typography>
-            <Typography
-              variant="h6"
-              sx={{ my: 4, fontSize: 13, fontWeight: 300, color: "gray" }}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-              velit dicta in porro autem. Expedita nemo repellat corporis fuga
-              esse.
+            <Typography variant="h6" sx={{ my: 4, color: "gray" }}>
+              We have the best experienced doctors of our country to give you
+              the best treatments. So that you can enjoy a healthy life.
             </Typography>
-            <Button variant="contained" sx={{ backgroundColor: "#5CE7ED" }}>
-              Get Appointment
-            </Button>
+            {/* go to appointment  */}
+            <Link to="/appointment" style={{ textDecoration: "none" }}>
+              <Button variant="contained" color="primary">
+                Appointment
+              </Button>
+            </Link>
           </Box>
         </Grid>
         <Grid item xs={12} md={6} style={verticalCenter}>

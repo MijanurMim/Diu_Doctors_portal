@@ -25,12 +25,20 @@ const Navigation = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Doctors Portal
+            Diu Doctors Portal
           </Typography>
 
           {/* go to appointment  */}
-          <Link to="/appointment" sx={{ textDecoration: "none" }}>
-            <Button color="secondary">Appointment</Button>
+          <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
+            <Button color="inherit">Home</Button>
+          </Link>
+
+          {/* go to appointment  */}
+          <Link
+            to="/appointment"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <Button color="inherit">Appointment</Button>
           </Link>
 
           {user?.email ? (

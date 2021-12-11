@@ -111,6 +111,7 @@ function Dashboard(props) {
           container={container}
           variant="temporary"
           open={mobileOpen}
+          
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.

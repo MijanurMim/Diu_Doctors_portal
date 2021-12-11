@@ -47,8 +47,8 @@ const AppointmentBanner = () => {
               variant="h6"
               sx={{ color: "white", fontSize: 14, fontWeight: 300, my: 5 }}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-              nemo, expedita nostrum maxime rerum, aspernatur.
+              We have the best experienced doctors of our country to give you
+              the best treatments. So that you can enjoy a healthy life.
             </Typography>
             <Button variant="contained" sx={{ backgroundColor: "#5CE7ED" }}>
               Learn More
